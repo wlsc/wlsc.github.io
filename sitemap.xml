@@ -2,10 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wlsc.de/categories/</loc>
+    <loc>https://wlsc.github.io/categories/</loc>
   </url><url>
-    <loc>https://wlsc.de/tags/</loc>
+    <loc>https://wlsc.github.io/tags/</loc>
   </url><url>
-    <loc>https://wlsc.de/</loc>
+    <loc>https://wlsc.github.io/</loc>
   </url>
 </urlset>
