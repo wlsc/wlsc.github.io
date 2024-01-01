@@ -5,6 +5,7 @@
     <link>https://wlsc.de/categories/</link>
     <description>Recent content in Categories on wlsc</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://wlsc.de/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://wlsc.de/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

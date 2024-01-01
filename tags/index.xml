@@ -5,6 +5,7 @@
     <link>https://wlsc.de/tags/</link>
     <description>Recent content in Tags on wlsc</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://wlsc.de/tags/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <atom:link href="https://wlsc.de/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
