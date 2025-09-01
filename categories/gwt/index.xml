@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GWT on wlsc</title><link>https://wlsc.de/categories/gwt/</link><description>Recent content in GWT on wlsc</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 21 Apr 2016 16:10:17 +0000</lastBuildDate><atom:link href="https://wlsc.de/categories/gwt/index.xml" rel="self" type="application/rss+xml"/><item><title>Short URL in your GWT project</title><link>https://wlsc.de/2016/04/21/short-url-in-your-gwt-project/</link><pubDate>Thu, 21 Apr 2016 16:10:17 +0000</pubDate><guid>https://wlsc.de/2016/04/21/short-url-in-your-gwt-project/</guid><description>&lt;p&gt;If you are struggling with a long URL in the GWT project, you are at the right place! There is a small trick, which
+allows URL to be shorter.&lt;/p&gt;
+&lt;h2 id="url-transformation"&gt;
+ URL Transformation
+ &lt;a class="heading-link" href="#url-transformation"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;From:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://domain.com/tomcat_context_path/project_name/your_index.html
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;strong&gt;To:&lt;/strong&gt;&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;https://domain.com/tomcat_context_path/
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>Launching GWT app in SuperDevMode on local Tomcat server</title><link>https://wlsc.de/2015/10/03/launching-gwt-app-in-superdevmode-on-local-tomcat-server/</link><pubDate>Sat, 03 Oct 2015 22:32:57 +0000</pubDate><guid>https://wlsc.de/2015/10/03/launching-gwt-app-in-superdevmode-on-local-tomcat-server/</guid><description>&lt;p&gt;This article is dedicated to all people who are still developing on internal Jetty server and do not know how to run
+their product on &lt;a href="http://tomcat.apache.org/" class="external-link" target="_blank" rel="noopener"&gt;Apache Tomcat server&lt;/a&gt;. This guide is valid for *
+&lt;em&gt;&lt;a href="http://www.eclipse.org/" class="external-link" target="_blank" rel="noopener"&gt;Eclipse IDE&lt;/a&gt;&lt;/em&gt;* (Currently: v4.5 MARS).&lt;/p&gt;
+&lt;p&gt;First of all, if you are not familiar with &lt;strong&gt;SuperDevMode&lt;/strong&gt; and its prerequisites, please check the official docs
+at &lt;a href="http://www.gwtproject.org/articles/superdevmode.html" class="external-link" target="_blank" rel="noopener"&gt;http://www.gwtproject.org&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

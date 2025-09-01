@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Paper on wlsc</title><link>https://wlsc.de/tags/paper/</link><description>Recent content in Paper on wlsc</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 01 Jan 2017 19:35:17 +0000</lastBuildDate><atom:link href="https://wlsc.de/tags/paper/index.xml" rel="self" type="application/rss+xml"/><item><title>Apple releases its first AI paper</title><link>https://wlsc.de/2017/01/01/apple-releases-its-first-ai-paper/</link><pubDate>Sun, 01 Jan 2017 19:35:17 +0000</pubDate><guid>https://wlsc.de/2017/01/01/apple-releases-its-first-ai-paper/</guid><description>&lt;h2 id="learning-from-simulated-and-unsupervised-images-through-adversarial-training"&gt;
+ Learning from Simulated and Unsupervised Images through Adversarial Training
+ &lt;a class="heading-link" href="#learning-from-simulated-and-unsupervised-images-through-adversarial-training"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://wlsc.de/images/2017/01/apple_first_paper.jpg" &gt;&lt;img src="https://wlsc.de/images/2017/01/apple_first_paper-1024x560.jpg" alt="Apple first AI paper"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The first paper from Apple company regarding Artificial Intelligence with Deep
+Learning &lt;a href="https://arxiv.org/abs/1612.07828" class="external-link" target="_blank" rel="noopener"&gt;is published&lt;/a&gt;!&lt;/p&gt;</description></item><item><title>Concrete AI safety problems</title><link>https://wlsc.de/2016/06/22/concrete-ai-safety-problems/</link><pubDate>Wed, 22 Jun 2016 11:20:06 +0000</pubDate><guid>https://wlsc.de/2016/06/22/concrete-ai-safety-problems/</guid><description>&lt;p&gt;The &lt;strong&gt;&amp;ldquo;Concrete AI safety problems&amp;rdquo;&lt;/strong&gt; paper by &lt;em&gt;Dario Amodei (Google Brain), Chris Olah (Google Brain), Jacob
+Steinhardt (Stanford University), Paul Christiano (UC Berkeley), John Schulman (OpenAI), Dan Mané (Google Brain)&lt;/em&gt;
+suggests a new approach to the Machine Learning (ML) and Artificial Intelligence (AI) research, which focuses more on
+productivity of forward-looking applications while building cutting-edge AI systems.&lt;/p&gt;
+&lt;p&gt;A number of key problems considered in the paper as well as their descriptions are listed below. In the paper authors
+also elaborate on how to approach each of the given problem.&lt;/p&gt;</description></item></channel></rss>
