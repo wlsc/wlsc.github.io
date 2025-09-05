@@ -1,0 +1,84 @@
+<!doctype html><html lang=en><head><title>Gradle: How to apply Flavors for Build Types in Android Studio · wlsc</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Wladimir Schmidt"><meta name=description content="Gradle is well-known as a central build automation system used
+in Android Studio IDE developed
+by Google. To create multiple versions of your application, you would need to modify your
+app, recompile it and then repeat the procedure with a new version again! This will get messy pretty fast. Thanks to
+Gradle, getting multiple versions of our app has become extremely easy."><meta name=keywords content="Wladimir Schmidt,Principal Software Engineer,Principal Software Developer,Distributed Systems Engineer,Stream Processing,Real-Time Processing,Big Data,Research and Development,R&amp;D,Expert Developer,Development Architect,personal blog,wlsc,software,engineering,business software,Cloud-Native Applications,machine learning,thoughts,resume,cv"><meta name=twitter:card content="summary"><meta name=twitter:title content="Gradle: How to apply Flavors for Build Types in Android Studio"><meta name=twitter:description content="Gradle is well-known as a central build automation system used in Android Studio IDE developed by Google. To create multiple versions of your application, you would need to modify your app, recompile it and then repeat the procedure with a new version again! This will get messy pretty fast. Thanks to Gradle, getting multiple versions of our app has become extremely easy."><meta property="og:url" content="https://wlsc.de/posts/2015-10-13-gradle-how-to-apply-flavors-for-build-types-in-android-studio/"><meta property="og:site_name" content="wlsc"><meta property="og:title" content="Gradle: How to apply Flavors for Build Types in Android Studio"><meta property="og:description" content="Gradle is well-known as a central build automation system used in Android Studio IDE developed by Google. To create multiple versions of your application, you would need to modify your app, recompile it and then repeat the procedure with a new version again! This will get messy pretty fast. Thanks to Gradle, getting multiple versions of our app has become extremely easy."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2015-10-13T00:00:00+00:00"><meta property="article:modified_time" content="2015-10-13T00:00:00+00:00"><meta property="article:tag" content="Android Studio"><meta property="article:tag" content="BuildTypes"><meta property="article:tag" content="Flavors"><meta property="article:tag" content="Gradle"><link rel=canonical href=https://wlsc.de/posts/2015-10-13-gradle-how-to-apply-flavors-for-build-types-in-android-studio/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://wlsc.de/>wlsc
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Tech.blog</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://wlsc.de/posts/2015-10-13-gradle-how-to-apply-flavors-for-build-types-in-android-studio/>Gradle: How to apply Flavors for Build Types in Android Studio</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2015-10-13T00:00:00Z>October 13, 2015
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/android/>Android</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/android-studio/>Android Studio</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/buildtypes/>BuildTypes</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/flavors/>Flavors</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/gradle/>Gradle</a></span></div></div></header><div class=post-content><img src=/images/2015/10/GradleLogoReg.png alt="Featured image"><p><a href=http://gradle.org/ class=external-link target=_blank rel=noopener>Gradle</a> is well-known as a central build automation system used
+in <a href=http://developer.android.com/tools/studio/index.html class=external-link target=_blank rel=noopener>Android Studio IDE</a> developed
+by <a href=https://www.google.com/ class=external-link target=_blank rel=noopener>Google</a>. To create multiple versions of your application, you would need to modify your
+app, recompile it and then repeat the procedure with a new version again! This will get messy pretty fast. Thanks to
+Gradle, getting multiple versions of our app has become extremely easy.</p><h2 id=understanding-flavors-and-build-types>Understanding Flavors and Build Types
+<a class=heading-link href=#understanding-flavors-and-build-types><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Gradle automatizes the configuration process for every new version of your app in an easy way. Gradle calls it **Flavors
+**. To make a long story short, each Flavor is a decorator for an app (e.g. different strings, images or other
+resources). Gradle also offers <strong>Build Types</strong>, which do make your app compile in <em>DEBUG</em> or <em>RELEASE</em> mode. The Flavors
+and Build Types define <strong>Build Variants</strong>. Each Build Variant generates a modified version of your app (e.g. demo and
+full/paid versions).</p><h2 id=implementation-example>Implementation Example
+<a class=heading-link href=#implementation-example><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Today I will show you how to combine a Flavor and a Build Type. Below you will find an example of a <code>build.gradle</code>
+config.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-groovy data-lang=groovy><span style=display:flex><span>apply plugin: <span style=color:#e6db74>&#39;com.android.application&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>android <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>compileSdkVersion <span style=color:#ae81ff>23</span>
+</span></span><span style=display:flex><span>buildToolsVersion <span style=color:#e6db74>&#34;23.0.1&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    defaultConfig <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        applicationId <span style=color:#e6db74>&#34;com.example.app&#34;</span>
+</span></span><span style=display:flex><span>        minSdkVersion <span style=color:#ae81ff>16</span>
+</span></span><span style=display:flex><span>        targetSdkVersion <span style=color:#ae81ff>23</span>
+</span></span><span style=display:flex><span>        versionCode <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        versionName <span style=color:#e6db74>&#34;1.0&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    productFlavors <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        demo <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            applicationId <span style=color:#e6db74>&#39;com.example.app.demo&#39;</span>
+</span></span><span style=display:flex><span>            versionName <span style=color:#e6db74>&#39;1.0 demo&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        full <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            applicationId <span style=color:#e6db74>&#39;com.example.app.full&#39;</span>
+</span></span><span style=display:flex><span>            versionName <span style=color:#e6db74>&#39;1.0 full&#39;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    buildTypes <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>        release <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            debuggable <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>            minifyEnabled <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>            proguardFiles <span style=color:#a6e22e>getDefaultProguardFile</span><span style=color:#f92672>(</span><span style=color:#e6db74>&#39;proguard-android.txt&#39;</span><span style=color:#f92672>),</span> <span style=color:#e6db74>&#39;proguard-rules.pro&#39;</span>
+</span></span><span style=display:flex><span>            productFlavors<span style=color:#f92672>.</span><span style=color:#a6e22e>demo</span><span style=color:#f92672>.</span><span style=color:#a6e22e>buildConfigField</span> <span style=color:#e6db74>&#34;String&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;BASE_API_URL&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;\&#34;https://your_demo_release_url\&#34;&#34;</span>
+</span></span><span style=display:flex><span>            productFlavors<span style=color:#f92672>.</span><span style=color:#a6e22e>full</span><span style=color:#f92672>.</span><span style=color:#a6e22e>buildConfigField</span> <span style=color:#e6db74>&#34;String&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;BASE_API_URL&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;\&#34;https://your_full_release_url\&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>        debug <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>            debuggable <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>            minifyEnabled <span style=color:#66d9ef>false</span>
+</span></span><span style=display:flex><span>            productFlavors<span style=color:#f92672>.</span><span style=color:#a6e22e>demo</span><span style=color:#f92672>.</span><span style=color:#a6e22e>buildConfigField</span> <span style=color:#e6db74>&#34;String&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;BASE_API_URL&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;\&#34;https://your_demo_debug_url\&#34;&#34;</span>
+</span></span><span style=display:flex><span>            productFlavors<span style=color:#f92672>.</span><span style=color:#a6e22e>full</span><span style=color:#f92672>.</span><span style=color:#a6e22e>buildConfigField</span> <span style=color:#e6db74>&#34;String&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;BASE_API_URL&#34;</span><span style=color:#f92672>,</span> <span style=color:#e6db74>&#34;\&#34;https://your_full_debug_url\&#34;&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span></span></span></code></pre></div><h2 id=usage-in-source-code>Usage in Source Code
+<a class=heading-link href=#usage-in-source-code><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>As you can see, demo Flavor has two <code>BASE_API_URL</code> defined in <em>DEBUG</em> and <em>RELEASE</em> Build Types. To be able to use it in
+your source code, you just need to build your project and then to write this (somewhere in your code):
+<code>BuildConfig.BASE_API_URL</code> — this will allow you to keep your constant defined in a <code>build.gradle</code> file.</p><h2 id=important-note>Important Note
+<a class=heading-link href=#important-note><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p><strong>⚠️ CAUTION</strong>: Please, note the quotes in the definition section of the config file above. If you forget the quotes,
+you will end up in a generated BuildConfig file with a String constant which has no quotes (not a valid String
+constant).</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2025
+Wladimir Schmidt
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W6RQWQXZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","GTM-W6RQWQXZ")</script></body></html>

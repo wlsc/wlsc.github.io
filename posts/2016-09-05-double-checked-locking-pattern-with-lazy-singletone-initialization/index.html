@@ -1,0 +1,84 @@
+<!doctype html><html lang=en><head><title>Double-Checked Locking Pattern with Lazy Singletone Initialization · wlsc</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Wladimir Schmidt"><meta name=description content="In the real world of multicore processors, we have to write multi-threaded applications that would use all cores
+efficiently. This is very practical, when it comes to high-loaded servers (with a high amount of users trying to access
+service at the same time). For instance, after you have successfully introduced the new functionality on your web
+service or fixed some bugs, your first intuition would be to release the new version as soon as possible. At this point,
+when your users start to access your web service simultaneously, a situation may arise, when two or more users will
+initialize the same singleton or field value more than once. This is not a favorable type of scenario. It is also the
+main reason your applications should be ready to initialize its singletons (and not only) properly!"><meta name=keywords content="Wladimir Schmidt,Principal Software Engineer,Principal Software Developer,Distributed Systems Engineer,Stream Processing,Real-Time Processing,Big Data,Research and Development,R&amp;D,Expert Developer,Development Architect,personal blog,wlsc,software,engineering,business software,Cloud-Native Applications,machine learning,thoughts,resume,cv"><meta name=twitter:card content="summary"><meta name=twitter:title content="Double-Checked Locking Pattern with Lazy Singletone Initialization"><meta name=twitter:description content="In the real world of multicore processors, we have to write multi-threaded applications that would use all cores efficiently. This is very practical, when it comes to high-loaded servers (with a high amount of users trying to access service at the same time). For instance, after you have successfully introduced the new functionality on your web service or fixed some bugs, your first intuition would be to release the new version as soon as possible. At this point, when your users start to access your web service simultaneously, a situation may arise, when two or more users will initialize the same singleton or field value more than once. This is not a favorable type of scenario. It is also the main reason your applications should be ready to initialize its singletons (and not only) properly!"><meta property="og:url" content="https://wlsc.de/posts/2016-09-05-double-checked-locking-pattern-with-lazy-singletone-initialization/"><meta property="og:site_name" content="wlsc"><meta property="og:title" content="Double-Checked Locking Pattern with Lazy Singletone Initialization"><meta property="og:description" content="In the real world of multicore processors, we have to write multi-threaded applications that would use all cores efficiently. This is very practical, when it comes to high-loaded servers (with a high amount of users trying to access service at the same time). For instance, after you have successfully introduced the new functionality on your web service or fixed some bugs, your first intuition would be to release the new version as soon as possible. At this point, when your users start to access your web service simultaneously, a situation may arise, when two or more users will initialize the same singleton or field value more than once. This is not a favorable type of scenario. It is also the main reason your applications should be ready to initialize its singletons (and not only) properly!"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2016-09-05T00:00:00+00:00"><meta property="article:modified_time" content="2016-09-05T00:00:00+00:00"><meta property="article:tag" content="Design Patterns"><meta property="article:tag" content="Enum"><meta property="article:tag" content="Lock"><meta property="article:tag" content="Multithreading"><meta property="article:tag" content="Singleton"><link rel=canonical href=https://wlsc.de/posts/2016-09-05-double-checked-locking-pattern-with-lazy-singletone-initialization/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.022594d625780e2edf64581b893d32cb35c11de5d88953ea4ad3c2e45451e214.css integrity="sha256-AiWU1iV4Di7fZFgbiT0yyzXBHeXYiVPqStPC5FRR4hQ=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://wlsc.de/>wlsc
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Tech.blog</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://wlsc.de/posts/2016-09-05-double-checked-locking-pattern-with-lazy-singletone-initialization/>Double-Checked Locking Pattern with Lazy Singletone Initialization</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2016-09-05T00:00:00Z>September 5, 2016
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+3-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/java/>Java</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/design-patterns/>Design Patterns</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/enum/>Enum</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/lock/>Lock</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/multithreading/>Multithreading</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/singleton/>Singleton</a></span></div></div></header><div class=post-content><img src=/images/2016/09/keep-calm-and-double-check.png alt="Featured image"><p>In the real world of multicore processors, we have to write multi-threaded applications that would use all cores
+efficiently. This is very practical, when it comes to high-loaded servers (with a high amount of users trying to access
+service at the same time). For instance, after you have successfully introduced the new functionality on your web
+service or fixed some bugs, your first intuition would be to release the new version as soon as possible. At this point,
+when your users start to access your web service simultaneously, a situation may arise, when two or more users will
+initialize the same singleton or field value more than once. This is not a favorable type of scenario. It is also the
+main reason your applications should be ready to initialize its singletons (and not only) properly!</p><h2 id=double-checked-locking-implementation>Double-Checked Locking Implementation
+<a class=heading-link href=#double-checked-locking-implementation><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>final</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Singleton</span> {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Block access for two threads simultaneously</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>volatile</span> Singleton INSTANCE;
+</span></span><span style=display:flex><span>   
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * Blocks direct object creation
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#a6e22e>Singleton</span>() {
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> Singleton <span style=color:#a6e22e>getInstance</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// First check: two or more threads can pass this check</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (INSTANCE <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>synchronized</span> (Singleton.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// Second check: only one thread will initialize the variable instance</span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (INSTANCE <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>                    INSTANCE <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Singleton();
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> INSTANCE;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><h2 id=how-it-works>How It Works
+<a class=heading-link href=#how-it-works><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The code above does the singleton initialization in two major steps:</p><ol><li><p><strong>First Check</strong>: The first step would be to check, if the singleton <code>INSTANCE</code> has been already initialized. No big
+deal.</p></li><li><p><strong>Second Check with Synchronization</strong>: The second step is however very important. If the check for <code>INSTANCE</code> returns
+null and the singleton has not been initialized yet, in this case we first synchronize the thread access to get a
+unique access from only one thread. Afterwards we check the <code>INSTANCE</code> of the singleton class again. These actions
+are performed in order to be sure that no other thread has already modified the <code>INSTANCE</code> (between the first check
+<code>INSTANCE</code> for null value and synchronized block). Once a thread has received a unique access and checked <code>INSTANCE</code>
+for null, it initializes the singleton instance. Do not forget to declare the singleton instance as <code>volatile</code>.</p></li></ol><h2 id=importance-of-volatile-keyword>Importance of Volatile Keyword
+<a class=heading-link href=#importance-of-volatile-keyword><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Without the <code>volatile</code> variable, another thread could read a half-initialized <code>INSTANCE</code> variable in the moment when the
+first thread is about to leave the synchronized block. The <code>volatile</code> variable guarantees happens-before behaviour. This
+means, that any write action related to the variable will take place prior to any reads. As a result, in the memory the
+object will be created only once, while your code will be possible to use safely in a multithreaded environment.</p><h2 id=modern-approach-enum-singleton>Modern Approach: Enum Singleton
+<a class=heading-link href=#modern-approach-enum-singleton><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>However, starting Java 1.5 release, <code>Enum</code> class was introduced. It does allow for an easy multithread-safe creation of
+a singleton instance.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>enum</span> Singleton {
+</span></span><span style=display:flex><span>  INSTANCE;
+</span></span><span style=display:flex><span>}</span></span></code></pre></div><p>Many programmers prefer Enums to handcrafting singletons by themselves. Personally I also share this approach and thus I
+don&rsquo;t recommend using anything but Enum singletons in your multithreaded applications. This will reduce side-effects,
+errors and obvious memory leaks in your programs.</p><h2 id=practical-applications>Practical Applications
+<a class=heading-link href=#practical-applications><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>The Double Checked pattern itself does allow you to initialize any preferred variable in a multithreaded environment,
+not just a singleton class. Many interviewers tend to ask this question in the job interviews (especially if you are a
+junior in the beginning of your Software Development career) in order check your ability to understand the basics of
+multithreaded programming.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2025
+Wladimir Schmidt
+·
+Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script async src="https://www.googletagmanager.com/gtag/js?id=GTM-W6RQWQXZ"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","GTM-W6RQWQXZ")</script></body></html>

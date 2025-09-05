@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mcp on wlsc</title><link>https://wlsc.de/tags/mcp/</link><description>Recent content in Mcp on wlsc</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wlsc.de/tags/mcp/index.xml" rel="self" type="application/rss+xml"/><item><title>Model Context Protocol</title><link>https://wlsc.de/posts/2025-09-05-model-context-protocol/</link><pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate><guid>https://wlsc.de/posts/2025-09-05-model-context-protocol/</guid><description>&lt;h2 id="what-model-context-protocol"&gt;
+ What Model Context Protocol?
+ &lt;a class="heading-link" href="#what-model-context-protocol"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Model Context Protocol (MCP) is an open, vendor-neutral protocol for connecting AI applications to tools and data using
+a small set of well-defined capabilities: &lt;strong&gt;tools&lt;/strong&gt;, &lt;strong&gt;resources&lt;/strong&gt;, &lt;strong&gt;prompts&lt;/strong&gt;, &lt;strong&gt;roots&lt;/strong&gt;, and a few transport
+options (stdio and HTTP/SSE). In practice, an &lt;em&gt;MCP server&lt;/em&gt; is any process that exposes one or more of these
+capabilities; an &lt;em&gt;MCP client&lt;/em&gt; (your IDE agent, chat app, or API runtime) discovers them and uses them safely
+with explicit user consent. Think of MCP as a USB-C port for AI: a common connector that lets models talk to the outside
+world without bespoke adapters for every integration.&lt;/p&gt;</description></item></channel></rss>

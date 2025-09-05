@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Developer Tools on wlsc</title><link>https://wlsc.de/categories/developer-tools/</link><description>Recent content in Developer Tools on wlsc</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://wlsc.de/categories/developer-tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Model Context Protocol</title><link>https://wlsc.de/posts/2025-09-05-model-context-protocol/</link><pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate><guid>https://wlsc.de/posts/2025-09-05-model-context-protocol/</guid><description>&lt;h2 id="what-model-context-protocol"&gt;
+ What Model Context Protocol?
+ &lt;a class="heading-link" href="#what-model-context-protocol"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Model Context Protocol (MCP) is an open, vendor-neutral protocol for connecting AI applications to tools and data using
+a small set of well-defined capabilities: &lt;strong&gt;tools&lt;/strong&gt;, &lt;strong&gt;resources&lt;/strong&gt;, &lt;strong&gt;prompts&lt;/strong&gt;, &lt;strong&gt;roots&lt;/strong&gt;, and a few transport
+options (stdio and HTTP/SSE). In practice, an &lt;em&gt;MCP server&lt;/em&gt; is any process that exposes one or more of these
+capabilities; an &lt;em&gt;MCP client&lt;/em&gt; (your IDE agent, chat app, or API runtime) discovers them and uses them safely
+with explicit user consent. Think of MCP as a USB-C port for AI: a common connector that lets models talk to the outside
+world without bespoke adapters for every integration.&lt;/p&gt;</description></item><item><title>Vibe-Coding Revolution</title><link>https://wlsc.de/posts/2025-09-02-vibe-coding-revolution/</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://wlsc.de/posts/2025-09-02-vibe-coding-revolution/</guid><description>&lt;h1 id="vibe-coding-revolution"&gt;
+ Vibe-Coding Revolution
+ &lt;a class="heading-link" href="#vibe-coding-revolution"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;Vibe-coding is a conversational, intent-first way to build software: you describe what you want in natural language, the
+tool proposes multi-file diffs, and you iterate by accepting or rejecting changes—often without line-by-line authorship.
+The phrase itself was popularized by Andrej Karpathy in early February 2025, who described it as “fully giving in to the
+vibes… and forgetting that the code even exists,” a framing that spread quickly across tech media. Merriam-Webster
+subsequently added &lt;em&gt;vibe coding&lt;/em&gt; to its “Slang &amp;amp; Trending” entries in March 2025, noting the defining characteristic:
+you let an AI produce the code and accept that some glitches will be
+present.&lt;/p&gt;</description></item></channel></rss>
