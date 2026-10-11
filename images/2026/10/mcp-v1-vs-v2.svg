@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" font-family="-apple-system, Segoe UI, Helvetica, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+  </defs>
+  <rect width="800" height="380" rx="12" fill="#f8fafc"/>
+  <text x="200" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">Before: 2025-11-25</text>
+  <text x="600" y="34" text-anchor="middle" font-size="17" font-weight="700" fill="#0f172a">Now: 2026-07-28</text>
+  <line x1="400" y1="50" x2="400" y2="360" stroke="#cbd5e1" stroke-dasharray="4 4"/>
+
+  <!-- v1 -->
+  <rect x="40" y="56" width="90" height="34" rx="6" fill="#e2e8f0" stroke="#475569"/>
+  <text x="85" y="78" text-anchor="middle" fill="#0f172a">Client</text>
+  <rect x="270" y="56" width="90" height="34" rx="6" fill="#e2e8f0" stroke="#475569"/>
+  <text x="315" y="78" text-anchor="middle" fill="#0f172a">Server</text>
+  <line x1="85" y1="90" x2="85" y2="350" stroke="#94a3b8"/>
+  <line x1="315" y1="90" x2="315" y2="350" stroke="#94a3b8"/>
+  <rect x="150" y="100" width="130" height="150" rx="8" fill="#fee2e2" opacity=".7"/>
+  <text x="215" y="118" text-anchor="middle" font-size="11" font-weight="700" fill="#b91c1c">SESSION STATE</text>
+  <line x1="85" y1="136" x2="315" y2="136" stroke="#475569" marker-end="url(#a)"/>
+  <text x="200" y="130" text-anchor="middle" fill="#0f172a">initialize</text>
+  <line x1="315" y1="164" x2="85" y2="164" stroke="#475569" marker-end="url(#a)"/>
+  <text x="200" y="158" text-anchor="middle" fill="#0f172a">Mcp-Session-Id</text>
+  <line x1="85" y1="192" x2="315" y2="192" stroke="#475569" marker-end="url(#a)"/>
+  <text x="200" y="186" text-anchor="middle" fill="#0f172a">tools/call</text>
+  <line x1="315" y1="220" x2="85" y2="220" stroke="#b91c1c" marker-end="url(#a)"/>
+  <text x="200" y="214" text-anchor="middle" fill="#b91c1c">elicitation/create</text>
+  <line x1="85" y1="248" x2="315" y2="248" stroke="#475569" marker-end="url(#a)"/>
+  <text x="200" y="242" text-anchor="middle" fill="#0f172a">answer</text>
+  <text x="200" y="290" text-anchor="middle" fill="#334155">Sticky sessions · GET stream</text>
+  <text x="200" y="310" text-anchor="middle" fill="#334155">Server calls the client</text>
+  <text x="200" y="330" text-anchor="middle" fill="#334155">Server remembers you</text>
+
+  <!-- v2 -->
+  <rect x="440" y="56" width="90" height="34" rx="6" fill="#e2e8f0" stroke="#475569"/>
+  <text x="485" y="78" text-anchor="middle" fill="#0f172a">Client</text>
+  <rect x="670" y="56" width="90" height="34" rx="6" fill="#e2e8f0" stroke="#475569"/>
+  <text x="715" y="78" text-anchor="middle" fill="#0f172a">Server</text>
+  <line x1="485" y1="90" x2="485" y2="350" stroke="#94a3b8"/>
+  <line x1="715" y1="90" x2="715" y2="350" stroke="#94a3b8"/>
+  <line x1="485" y1="122" x2="715" y2="122" stroke="#475569" marker-end="url(#a)"/>
+  <text x="600" y="116" text-anchor="middle" fill="#0f172a">tools/call + _meta</text>
+  <line x1="715" y1="150" x2="485" y2="150" stroke="#047857" marker-end="url(#a)"/>
+  <text x="600" y="144" text-anchor="middle" fill="#047857">input_required + requestState</text>
+  <line x1="485" y1="178" x2="715" y2="178" stroke="#475569" marker-end="url(#a)"/>
+  <text x="600" y="172" text-anchor="middle" fill="#0f172a">retry + inputResponses</text>
+  <line x1="715" y1="206" x2="485" y2="206" stroke="#475569" marker-end="url(#a)"/>
+  <text x="600" y="200" text-anchor="middle" fill="#0f172a">complete</text>
+  <rect x="470" y="228" width="260" height="26" rx="6" fill="#d1fae5" stroke="#047857"/>
+  <text x="600" y="246" text-anchor="middle" font-size="12" fill="#065f46">every request stands alone</text>
+  <text x="600" y="290" text-anchor="middle" fill="#334155">Any instance, any load balancer</text>
+  <text x="600" y="310" text-anchor="middle" fill="#334155">Server only answers</text>
+  <text x="600" y="330" text-anchor="middle" fill="#334155">State travels with the request</text>
+</svg>

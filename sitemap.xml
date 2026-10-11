@@ -3,7 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://wlsc.de/categories/agentic-development/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/tags/architecture/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/categories/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/categories/developer-tools/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/tags/mcp/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/posts/2026-10-11-mcp-v2/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/tags/migration/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/tags/model-context-protocol/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/posts/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/tags/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://wlsc.de/</loc>
+    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://wlsc.de/tags/agentic-ai/</loc>
     <lastmod>2025-09-05T00:00:00+00:00</lastmod>
@@ -11,31 +41,10 @@
     <loc>https://wlsc.de/tags/ai-assisted-development/</loc>
     <lastmod>2025-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wlsc.de/categories/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://wlsc.de/categories/developer-productivity/</loc>
     <lastmod>2025-09-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wlsc.de/categories/developer-tools/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://wlsc.de/tags/mcp/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://wlsc.de/posts/2025-09-05-model-context-protocol/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://wlsc.de/tags/model-context-protocol/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://wlsc.de/posts/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://wlsc.de/tags/</loc>
-    <lastmod>2025-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://wlsc.de/</loc>
     <lastmod>2025-09-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://wlsc.de/tags/conversational-programming/</loc>

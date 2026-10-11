@@ -10,14 +10,21 @@
 		
 		
 		
-			<lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sun, 11 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://wlsc.de/categories/index.xml" rel="self" type="application/rss+xml" />
 			<item>
 				<title>Agentic Development</title>
 				<link>https://wlsc.de/categories/agentic-development/</link>
-				<pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
 				<guid>https://wlsc.de/categories/agentic-development/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Developer Tools</title>
+				<link>https://wlsc.de/categories/developer-tools/</link>
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://wlsc.de/categories/developer-tools/</guid>
 				<description></description>
 			</item>
 			<item>
@@ -25,13 +32,6 @@
 				<link>https://wlsc.de/categories/developer-productivity/</link>
 				<pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
 				<guid>https://wlsc.de/categories/developer-productivity/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Developer Tools</title>
-				<link>https://wlsc.de/categories/developer-tools/</link>
-				<pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>https://wlsc.de/categories/developer-tools/</guid>
 				<description></description>
 			</item>
 			<item>

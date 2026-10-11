@@ -10,9 +10,37 @@
 		
 		
 		
-			<lastBuildDate>Fri, 05 Sep 2025 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sun, 11 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="https://wlsc.de/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Architecture</title>
+				<link>https://wlsc.de/tags/architecture/</link>
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://wlsc.de/tags/architecture/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Mcp</title>
+				<link>https://wlsc.de/tags/mcp/</link>
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://wlsc.de/tags/mcp/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Migration</title>
+				<link>https://wlsc.de/tags/migration/</link>
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://wlsc.de/tags/migration/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Model-Context-Protocol</title>
+				<link>https://wlsc.de/tags/model-context-protocol/</link>
+				<pubDate>Sun, 11 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>https://wlsc.de/tags/model-context-protocol/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Agentic-Ai</title>
 				<link>https://wlsc.de/tags/agentic-ai/</link>
@@ -25,20 +53,6 @@
 				<link>https://wlsc.de/tags/ai-assisted-development/</link>
 				<pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
 				<guid>https://wlsc.de/tags/ai-assisted-development/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Mcp</title>
-				<link>https://wlsc.de/tags/mcp/</link>
-				<pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>https://wlsc.de/tags/mcp/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Model-Context-Protocol</title>
-				<link>https://wlsc.de/tags/model-context-protocol/</link>
-				<pubDate>Fri, 05 Sep 2025 00:00:00 +0000</pubDate>
-				<guid>https://wlsc.de/tags/model-context-protocol/</guid>
 				<description></description>
 			</item>
 			<item>
